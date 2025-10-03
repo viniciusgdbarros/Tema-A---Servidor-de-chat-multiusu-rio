@@ -60,7 +60,87 @@ O sistema completo (nas próximas etapas) terá os seguintes componentes:
 
 ---
 
-## 📌 Próximos Passos (Etapa 2)
-- Implementar **protótipo CLI de comunicação** (cliente-servidor mínimo).
-- Integrar logging no servidor e clientes.
-- Criar scripts de teste com múltiplos clientes simulados.
+Tema A — Servidor de Chat Multiusuário (Etapa 2)
+✅ Objetivo da Etapa 2
+
+Implementar cliente e servidor mínimos em rede (protótipo CLI).
+
+Permitir que múltiplos clientes se conectem ao servidor e troquem mensagens.
+
+Integrar logging thread-safe (libtslog) em servidor e clientes.
+
+Definir scripts de teste básicos com múltiplos clientes.
+
+📂 Estrutura do Projeto
+temaA_etapa2/
+├── logger.h            # Biblioteca de logging thread-safe (Etapa 1)
+├── server.cpp          # Servidor TCP concorrente (Etapa 2)
+├── client.cpp          # Cliente CLI de chat (Etapa 2)
+├── Makefile            # Compilação automática
+├── README.md           # Instruções e documentação
+├── sequence_chat.puml  # Diagrama de sequência (PlantUML)
+├── sequence_chat.md    # Diagrama de sequência (Mermaid)
+└── logs: server.log, client.log
+
+⚙️ Compilação e Execução
+Compilar
+make
+
+Rodar o servidor
+./server
+
+Rodar clientes (em outros terminais)
+./client
+
+
+O cliente conecta ao servidor e pode enviar mensagens.
+
+O servidor retransmite as mensagens para todos os clientes conectados (broadcast).
+
+Digite /quit para encerrar o cliente.
+
+Os logs são gravados em server.log e client.log.
+
+📊 Diagrama de Sequência (Etapa 2)
+PlantUML
+@startuml
+actor Cliente
+participant Servidor
+participant Logger
+
+Cliente -> Servidor: Conectar via TCP
+Servidor -> Logger: Registrar conexão
+Cliente -> Servidor: Enviar mensagem
+Servidor -> Logger: Registrar mensagem
+Servidor -> Cliente: Retransmitir (broadcast)
+Servidor -> Logger: Registrar broadcast
+@enduml
+
+Mermaid
+sequenceDiagram
+    participant Cliente
+    participant Servidor
+    participant Logger
+
+    Cliente->>Servidor: Conectar via TCP
+    Servidor->>Logger: Registrar conexão
+    Cliente->>Servidor: Enviar mensagem
+    Servidor->>Logger: Registrar mensagem
+    Servidor->>Cliente: Retransmitir (broadcast)
+    Servidor->>Logger: Registrar broadcast
+
+📌 Próximos Passos (Etapa 3)
+
+Completar funcionalidades finais do servidor de chat:
+
+autenticação opcional,
+
+mensagens privadas,
+
+robustez contra falhas,
+
+melhoria na interface cliente.
+
+Manter logging integrado em todas as operações.
+
+Produzir relatório técnico em PDF para entrega final.

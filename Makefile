@@ -1,11 +1,13 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -pthread -Wall
-TARGET = test_logger
 
-all: $(TARGET)
+all: server client
 
-$(TARGET): test_logger.cpp
-	$(CXX) $(CXXFLAGS) test_logger.cpp -o $(TARGET)
+server: server.cpp logger.h
+	$(CXX) $(CXXFLAGS) server.cpp -o server
+
+client: client.cpp logger.h
+	$(CXX) $(CXXFLAGS) client.cpp -o client
 
 clean:
-	rm -f $(TARGET) *.o
+	rm -f server client *.o *.log

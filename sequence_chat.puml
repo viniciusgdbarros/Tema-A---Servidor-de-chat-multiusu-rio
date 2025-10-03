@@ -1,0 +1,12 @@
+@startuml
+actor Cliente
+participant Servidor
+participant Logger
+
+Cliente -> Servidor: Conectar via TCP
+Servidor -> Logger: Registrar conexão
+Cliente -> Servidor: Enviar mensagem
+Servidor -> Logger: Registrar mensagem
+Servidor -> Cliente: Retransmitir (broadcast)
+Servidor -> Logger: Registrar broadcast
+@enduml

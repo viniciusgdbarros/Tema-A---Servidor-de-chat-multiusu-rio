@@ -1,4 +1,6 @@
-# Tema A — Servidor de Chat Multiusuário (Etapa 1)
+# Tema A — Servidor de Chat Multiusuário 
+
+## Etapa 1
 
 ## ✅ Objetivo da Etapa 1
 - Implementar biblioteca de logging **thread-safe** (`libtslog`).
@@ -60,7 +62,7 @@ O sistema completo (nas próximas etapas) terá os seguintes componentes:
 
 ---
 
-Tema A — Servidor de Chat Multiusuário (Etapa 2)
+## Etapa 2
 ✅ Objetivo da Etapa 2
 
 Implementar cliente e servidor mínimos em rede (protótipo CLI).
@@ -128,26 +130,6 @@ sequenceDiagram
     Servidor->>Logger: Registrar mensagem
     Servidor->>Cliente: Retransmitir (broadcast)
     Servidor->>Logger: Registrar broadcast
-
-📌 Próximos Passos (Etapa 3)
-
-Completar funcionalidades finais do servidor de chat:
-
-autenticação opcional,
-
-mensagens privadas,
-
-robustez contra falhas,
-
-melhoria na interface cliente.
-
-Manter logging integrado em todas as operações.
-
-Produzir relatório técnico em PDF para entrega final.
-## 📌 Próximos Passos (Etapa 2)
-- Implementar **protótipo CLI de comunicação** (cliente-servidor mínimo).
-- Integrar logging no servidor e clientes.
-- Criar scripts de teste com múltiplos clientes simulados.
 
 ## Etapa 3 — Sistema Completo (Final)
 

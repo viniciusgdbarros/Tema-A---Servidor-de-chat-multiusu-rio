@@ -64,3 +64,22 @@ O sistema completo (nas próximas etapas) terá os seguintes componentes:
 - Implementar **protótipo CLI de comunicação** (cliente-servidor mínimo).
 - Integrar logging no servidor e clientes.
 - Criar scripts de teste com múltiplos clientes simulados.
+
+## Etapa 3 — Sistema Completo (Final)
+
+### Funcionalidades
+- Servidor TCP multiusuário completo (C++).
+- Clientes simultâneos com broadcast.
+- Logging integrado em todas as operações.
+- Tratamento de desconexões e erros.
+- Diagrama de sequência atualizado.
+- Relatório técnico final (relatorio_final.md / relatorio_final.pdf).
+
+### Teste rápido
+1. Compile com `make`
+2. Execute o servidor: `./server`
+3. Em outros terminais, execute clientes: `./client`
+4. Troque mensagens e teste `/quit`.
+
+### Tag
+`v3-final`

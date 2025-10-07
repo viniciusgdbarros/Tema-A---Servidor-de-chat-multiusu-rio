@@ -3,10 +3,12 @@ actor Cliente
 participant Servidor
 participant Logger
 
-Cliente -> Servidor: Conectar via TCP
+Cliente -> Servidor: Conecta via TCP
 Servidor -> Logger: Registrar conexão
-Cliente -> Servidor: Enviar mensagem
+Cliente -> Servidor: Envia mensagem
 Servidor -> Logger: Registrar mensagem
-Servidor -> Cliente: Retransmitir (broadcast)
+Servidor -> OutrosClientes: Broadcast
 Servidor -> Logger: Registrar broadcast
+Cliente -> Servidor: /quit
+Servidor -> Logger: Registrar desconexão
 @enduml
